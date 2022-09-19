@@ -1,0 +1,37 @@
+﻿@using BusinessLayer.Results
+@using EntityLayer.Concrete
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.EntityFrameworkCore
+
+@{
+
+    var aaa = Model;
+    var ss = ";";
+}
+
+
+<table class="table table-hovered">
+    <thead>
+    <th>ID</th>
+    <th>PID</th>
+    <th>UnitPrice</th> 
+    <th>Quantity</th>
+    <th>Discount</th>
+    </thead>
+    <tbody>
+    @foreach(var item in Model.Data)
+    {
+        <tr>
+            <td>@item.OrderID</td>
+            <td>@item.ProductID</td>
+            <td>@item.UnitPrice</td>
+            <td>@item.Quantity</td>
+            <td>@item.Discount</td>
+           @* <td><a class="btn btn-danger" asp-action="DeleteCategory" asp-controller="Category" asp-route-id="@item.CategoryID"
+                   onclick="createSolution()" type="submit" class="btn btn-primary" style="width:150px">DELETE<i class="fa fa-trash"></i></a> </td>
+            <td><a class="btn btn-danger" asp-action="UpdateCategory" asp-controller="Category" asp-route-id="@item.CategoryID"
+                   onclick="createSolution()" type="submit" class="btn btn-primary" style="width:150px">UPDATE<i class="fa fa-trash"></i></a>*@
+        </tr>
+    }
+    </tbody>
+</table>

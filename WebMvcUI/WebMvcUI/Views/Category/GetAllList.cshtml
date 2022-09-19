@@ -1,0 +1,33 @@
+﻿@using BusinessLayer.Results
+@using EntityLayer.Concrete
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model IDataResult<List<Category>>
+@{
+
+    var aaa = Model;
+    var ss = ";";
+}
+<a class="btn btn-success" asp-controller="Category" asp-action="AddCategory">ADDED</a>
+<table class="table table-hovered">
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th> 
+        <th>Delete</th>
+        <th>Update</th>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.Data)
+        {
+            <tr>
+                <td>@item.CategoryID</td>
+                <td>@item.CategoryName</td>
+                <td>@item.Description</td>
+                <td><a class="btn btn-danger" asp-action="DeleteCategory" asp-controller="Category" asp-route-id="@item.CategoryID"
+                       onclick="createSolution()" type="submit" class="btn btn-primary" style="width:150px">DELETE<i class="fa fa-trash"></i></a> </td>
+                <td><a class="btn btn-danger" asp-action="UpdateCategory" asp-controller="Category" asp-route-id="@item.CategoryID"
+                       onclick="createSolution()" type="submit" class="btn btn-primary" style="width:150px">UPDATE<i class="fa fa-trash"></i></a>
+            </tr>
+        }
+    </tbody>
+ </table>

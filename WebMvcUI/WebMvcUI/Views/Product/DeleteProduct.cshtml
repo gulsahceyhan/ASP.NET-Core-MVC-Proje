@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model EntityLayer.Concrete.Product
+
+<form method="post" asp-controller="Product" asp-action="DeleteProduct">
+    <div class="container p-3">
+
+        <h2 class="text-primary">
+            DeleteCategory
+        </h2>
+
+
+        <div class="row pt-4">
+
+            <div class="mb-3">
+                <label asp-for="ProductName" style="padding-bottom: 5px">ProductName</label>
+                <input asp-for="ProductName" disabled class="form-control" required />
+                <span asp-validation-for="ProductName" class="text-warning"></span>
+                
+            </div>
+        </div>
+        <div class="row pt-4">
+            <div class="col-6">
+                <button asp-route-ProductID="@Model.ProductID" type="submit" class="btn btn-primary" style="width:150px">Delete</button>
+                <a asp-controller="Product" asp-action="GetAllList" class="btn btn-secondary" style="width:150px">Back to solutions</a>
+            </div>
+        </div>
+    </div></div>
+
+
+</form>

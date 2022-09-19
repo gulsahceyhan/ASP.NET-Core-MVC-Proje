@@ -1,0 +1,40 @@
+﻿@using BusinessLayer.Results
+@using EntityLayer.Concrete
+@{
+
+    var aaa = Model;
+}
+
+<a class="btn btn-success" asp-controller="Product" asp-action="ProductAdd">ADDED</a>
+<table class="table table-hovered">
+    <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>CID</th>
+    <th>QuantityPerUnit</th>
+    <th>UnitInStock</th>
+    <th>UnitOnOrder</th>
+    <th>UnitPrice</th>
+    <th>Delete</th>
+    <th>Update</th>
+    </thead>
+    <tbody>
+    @foreach(var item in Model.Data)
+    {
+        <tr>
+            <td>@item.ProductID</td>
+            <td>@item.ProductName</td>
+            <td>@item.CategoryID</td>
+            <td>@item.QuantityPerUnit</td>
+            <td>@item.UnitsInStock</td>
+            <td>@item.UnitsOnOrder</td>
+            <td>@item.UnitPrice</td>
+            <td><a class="btn btn-danger" asp-action="DeleteProduct" asp-controller="Product" asp-route-id="@item.ProductID"
+                   onclick="createSolution()" type="submit" class="btn btn-primary" style="width:150px">DELETE<i class="fa fa-trash"></i></a> </td>
+            <td><a class="btn btn-danger" asp-action="UpdateProduct" asp-controller="Product" asp-route-id="@item.ProductID"
+                   onclick="createSolution()" type="submit" class="btn btn-primary" style="width:150px">UPDATE<i class="fa fa-trash"></i></a>
+            
+        </tr>
+    }
+    </tbody>
+</table>

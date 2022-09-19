@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model EntityLayer.Concrete.Category
+
+<form method="post" asp-controller="Category" asp-action="UpdateCategory">
+    <div class="container p-3">
+
+        <h2 class="text-primary">
+            Update Category
+        </h2>
+
+
+        <div class="row pt-4">
+
+            <div class="mb-3">
+                <label asp-for="CategoryName" style="padding-bottom: 5px">CategoryName</label>
+                <input asp-for="CategoryName"  class="form-control" required />
+                <span asp-validation-for="CategoryName" class="text-warning"></span>
+                @*bu son spanler controllerdan gelen validasyonların errormessagelarını otomatik olarak orada gosteriyor.
+                    Mesela bunların etkisinin olup olmadıgını görmek için renklerini değiştirip bakabilirsin
+                *@
+            </div>
+            <div class="mb-3">
+                <label asp-for="Description" style="padding-bottom: 5px">Description</label>
+                <input asp-for="Description"  class="form-control" required />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+           
+        </div>
+        <div class="row pt-4">
+            <div class="col-6">
+                <button asp-route-CategoryID="@Model.CategoryID" type="submit" class="btn btn-primary" style="width:150px">Update</button>
+                <a asp-controller="Category" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to solutions</a>
+            </div>
+        </div>
+    </div>
+
+
+</form>
